@@ -1,0 +1,15 @@
+.container {
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+mat-card {
+  text-align: center;
+}
+
+mat-card-title {
+  font-weight: 900;
+}

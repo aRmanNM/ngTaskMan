@@ -1,0 +1,35 @@
+<div class="container">
+  <app-toolbar [dir]="rtl" (onSearch)="filterResult($event)"></app-toolbar>
+  <mat-sidenav-container [hasBackdrop]="true">
+
+    <!-- sidenav -->
+    <mat-sidenav
+      fixedInViewport
+      #drawer
+      [(opened)]="sidebarToggleFlag"
+      [dir]="ltr"
+      [ngClass]="{sidenav: !mobileQuery.matches,'sidenav-mobile': mobileQuery.matches}">
+      <app-edit-sidebar
+        [taskToEdit]="taskToEdit"
+        (onTaskDelete)="deleteTask(); drawer.toggle()"
+      ></app-edit-sidebar>
+    </mat-sidenav>
+
+    <!-- main content -->
+    <!-- Trash: -->
+    <!--  -->
+    <mat-sidenav-content [dir]="rtl">
+
+      <app-task-list
+        [doneTasks]="doneTasks"
+        [undoneTasks]="undoneTasks"
+        (onDoTask)="doTask($event)"
+        (onUndoTask)="undoTask($event)"
+        (onSelectTask)="toggleEditSidebar($event)"
+        (onNewTask)="addNewTask($event)"
+      ></app-task-list>
+
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>

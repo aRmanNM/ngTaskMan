@@ -1,0 +1,21 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+input {
+  font-size: medium;
+  border-width:0px;
+  border: none;
+  width: 100%;
+  background-color: transparent;
+}
+
+input:focus{
+  outline: none;
+}
+

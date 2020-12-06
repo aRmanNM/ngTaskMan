@@ -1,0 +1,16 @@
+<div class="container" *ngIf="taskToEdit" [dir]="rtl">
+  <mat-form-field color="accent" appearance="fill" >
+    <mat-label>عنوان</mat-label>
+    <input matInput name="title" [(ngModel)]="taskToEdit.title">
+  </mat-form-field>
+  <mat-form-field color="accent" appearance="fill">
+    <mat-label>توضیحات</mat-label>
+    <textarea matInput cdkTextareaAutosize name="description" [(ngModel)]="taskToEdit.description"></textarea>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-fab color="warn" (click)="deleteTask()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+</div>

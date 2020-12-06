@@ -1,0 +1,42 @@
+<mat-list>
+
+  <!-- new task -->
+  <mat-list-item>
+      <mat-icon class="right-side-icon" (click)="addNewTask()">add</mat-icon>
+      <input
+        placeholder="تسک جدید"
+        (keyup.enter)="addNewTask()"
+        [(ngModel)]="newTask.title"/>
+      <mat-divider *ngIf="doneTasks?.length !== 0 && undoneTasks?.length !== 0"></mat-divider>
+  </mat-list-item>
+
+  <!-- undone tasks -->
+  <mat-list-item *ngFor="let task of undoneTasks">
+    <mat-icon class="right-side-icon" color="warn" (click)="doTask(task)"
+      >radio_button_unchecked</mat-icon
+    >
+    <span class="undone-task" (click)="editTask(task)">{{ task.title }}</span>
+    <mat-icon class="left-side-icon">star_outline</mat-icon>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+  <!-- done task toggler -->
+  <mat-list-item  (click)="toggleDoneTasks()" *ngIf="doneTasks?.length > 0">
+    <mat-icon class="right-side-icon" *ngIf="!showDoneTasks">keyboard_arrow_left</mat-icon>
+    <mat-icon class="right-side-icon" *ngIf="showDoneTasks">keyboard_arrow_down</mat-icon>
+    <span style="cursor: pointer;">اتمام یافته</span>
+    <span style="cursor: pointer; text-align: left;float: left; margin-left: 5px;">{{ doneTasks.length | persianNumbers }}</span>
+    <mat-divider></mat-divider>
+  </mat-list-item>
+
+  <!-- done tasks -->
+  <div *ngIf="showDoneTasks">
+    <mat-list-item *ngFor="let task of doneTasks">
+      <mat-icon class="right-side-icon" color="warn" (click)="undoTask(task)" checked="true">radio_button_checked</mat-icon>
+      <span class="done-task" (click)="editTask(task)">{{ task.title }}</span>
+      <mat-icon class="left-side-icon">star_outline</mat-icon>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </div>
+
+</mat-list>

@@ -1,0 +1,30 @@
+<!-- main toolbar -->
+<mat-toolbar *ngIf="!searchBox">
+  <mat-icon class="logo">library_add_check</mat-icon>
+  <span class="spacer"></span>
+
+  <!-- buttons -->
+  <button mat-icon-button (click)="toggleSearchBox()">
+    <mat-icon>search</mat-icon>
+  </button>
+  <button mat-icon-button [matMenuTriggerFor]="menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item disabled>
+      خوش اومدی {{ authService.decodedToken.given_name }}
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>خروج</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<!-- search toolbar -->
+<mat-toolbar *ngIf="searchBox">
+  <mat-icon (click)="clearSearchBox()" *ngIf="value !== ''">close</mat-icon>
+  <input class="search-input" type="text" placeholder="جستجو" (ngModelChange)="doSearch()" [(ngModel)]="value" />
+  <mat-icon (click)="toggleSearchBox()">arrow_back</mat-icon>
+</mat-toolbar>

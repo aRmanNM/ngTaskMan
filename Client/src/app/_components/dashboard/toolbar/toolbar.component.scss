@@ -1,0 +1,30 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+mat-icon {
+  cursor: pointer;
+}
+
+.logo {
+  margin-left: 5px;
+}
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #e3e3e3;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #e3e3e3;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #e3e3e3;
+}
+
+input {
+  color: white;
+}

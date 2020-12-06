@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+.delete-button {
+  display: flex;
+  align-items: flex-end;
+}
+.button-container {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+}
